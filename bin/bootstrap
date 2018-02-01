@@ -43,7 +43,7 @@ brew tap homebrew/bundle
 brew install emacs git hub tmux zsh
 
 # Install dotfiles
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/bin/upgrade | bash
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/bin/upgrade | bash
 
 # Install extras
 git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
