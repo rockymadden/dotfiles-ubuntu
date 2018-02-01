@@ -2,11 +2,10 @@
 
 set -e
 
-# Install core
+# Install essentials
 apt-get update -y
 apt-get dist-upgrade -y
 apt-get install -y build-essential mosh python
-apt-get autoremove -y
 
 # Set up ufw
 ufw allow ssh
@@ -16,7 +15,7 @@ ufw enable
 # Set up non-root user
 mkdir -p /home/rockymadden/.ssh
 cat <<EOT >> /home/rockymadden/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1doCgJj4PFO4jxgf2UnR8nmlNY7y96C6vp+oimSRZTijqy5qxHAE1GN8TNFFrnWEC/gQ2rD53rmLj5nEQr1v1oavKaOrSjmsWciytc+0WIfgB9PWLt17/yXtlgbFnHOcaWt7rD7WiJ2DzMfQGmrroHXZ8ukq47MaKwtg+dCajUzgFRDxBICZr53iBiCCUuTSjG5GcIPwKFRjZ/QVHmaFBMloPCfxj/uNYiDtnOAlOG0kkrLJWfHWCRGQDKsHGQpnd9mgGz40Gc/Fg/RUZzuP556KdI2vyoyoFkd6E0lhNuRLx3SPAhffPCyetEM9KWmk3FRgiOgVVOFgtmEp3Ykqe1rM/Y/PmjzfmKudWGPkFSTOd+656XTVCJuZJjEQOY4+IgUiryhXglZrLTg9+eH/VvJf4ruFRaqXpxkaAgTmQUwoKiiJ5xkq3Sj8DjQ9nIFB5/aHRq/9ao0wfmb8mMkG+5wgWrgE93xEwq+zLxCgW3hghnSX29Hglg1tck7fsNzai7IJaesQbo6VKvOoG87GcU7cXIqiEO3W987wffGI1hghCERzSmwZorMeFLU8B6D2adQi3DYvAzfOqP/zN4Mu5EYcK9GBCTjm3f22NZ+/4sNaJOIdzdff8kLGS4KSsG5HtAuswxFRgWNR6sMSc8PxlzWOdWfU1EEmKQ1VULw== dev@rockymadden.com
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1doCgJj4PFO4jxgf2UnR8nmlNY7y96C6vp+oimSRZTijqy5qxHAE1GN8TNFFrnWEC/gQ2rD53rmLj5nEQr1v1oavKaOrSjmsWciytc+0WIfgB9PWLt17/yXtlgbFnHOcaWt7rD7WiJ2DzMfQGmrroHXZ8ukq47MaKwtg+dCajUzgFRDxBICZr53iBiCCUuTSjG5GcIPwKFRjZ/QVHmaFBMloPCfxj/uNYiDtnOAlOG0kkrLJWfHWCRGQDKsHGQpnd9mgGz40Gc/Fg/RUZzuP556KdI2vyoyoFkd6E0lhNuRLx3SPAhffPCyetEM9KWmk3FRgiOgVVOFgtmEp3Ykqe1rM/Y/PmjzfmKudWGPkFSTOd+656XTVCJuZJjEQOY4+IgUiryhXglZrLTg9+eH/VvJf4ruFRaqXpxkaAgTmQUwoKiiJ5xkq3Sj8DjQ9nIFB5/aHRq/9ao0wfmb8mMkG+5wgWrgE93xEwq+zLxCgW3hghnSX29Hglg1tck7fsNzai7IJaesQbo6VKvOoG87GcU7cXIqiEO3W987wffGI1hghCERzSmwZorMeFLU8B6D2adQi3DYvAzfOqP/zN4Mu5EYcK9GBCTjm3f22NZ+/4sNaJOIdzdff8kLGS4KSsG5HtAuswxFRgWNR6sMSc8PxlzWOdWfU1EEmKQ1VULw== ssh@rockymadden.com
 EOT
 useradd -d /home/rockymadden rockymadden
 usermod -aG sudo rockymadden
@@ -25,7 +24,7 @@ chmod 700 /home/rockymadden/.ssh
 chmod 644 /home/rockymadden/.ssh/authorized_keys
 sed -i '/%sudo/c%sudo ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 
-# Switch to non-root user
+# Switch to me
 su -l rockymadden
 
 # Install brew
@@ -35,11 +34,11 @@ test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home
 test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
 echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
 
-# Reload non-root user
+# Reload me
 exit
 su -l rockymadden
 
-# Install brew barebones
+# Install brew essentials
 brew tap homebrew/bundle
 brew install emacs git hub tmux zsh
 
@@ -68,9 +67,8 @@ curl -sSL https://get.haskellstack.org/ | sh
 # Clean up
 brew cleanup
 rm -rf $(brew --cache)
-sudo apt-get clean
-
-# Enable zsh
+sudo apt clean -y
+sudo apt autoremove -y
 sudo chown -R rockymadden:rockymadden ~/
 sudo usermod -s $(which zsh) rockymadden
 
