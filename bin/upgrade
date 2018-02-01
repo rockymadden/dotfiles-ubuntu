@@ -2,19 +2,19 @@
 
 set -e
 
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/Brewfile --output Brewfile
-chmod 644 Brewfile
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/Npmfile --output Npmfile
-chmod 644 Npmfile
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.gitconfig --output .gitconfig
-chmod 644 .gitconfig
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.gitignore --output .gitignore
-chmod 644 .gitignore
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.spacemacs --output .spacemacs
-chmod 644 .spacemacs
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.tmux.conf --output .tmux.conf
-chmod 644 .tmux.conf
-curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.zshrc --output .zshrc
-chmod 644 .zshrc
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/Brewfile --output ~/Brewfile
+chmod 644 ~/Brewfile
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/Npmfile --output ~/Npmfile
+chmod 644 ~/Npmfile
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.gitconfig --output ~/.gitconfig
+chmod 644 ~/.gitconfig
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.gitignore --output ~/.gitignore
+chmod 644 ~/.gitignore
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.spacemacs --output ~/.spacemacs
+chmod 644 ~/.spacemacs
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.tmux.conf --output ~/.tmux.conf
+chmod 644 ~/.tmux.conf
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles-ubuntu/master/.zshrc --output ~/.zshrc
+chmod 644 ~/.zshrc
 
 set +e
