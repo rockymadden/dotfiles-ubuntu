@@ -1,0 +1,14 @@
+npm install --global \
+  ava \
+  bower \
+  bunyan \
+  elm \
+  hasha-cli \
+  pulp \
+  purescript \
+  ramdascript \
+  ramda-cli \
+  replem \
+  tern \
+  tmpl-cli \
+  xo
