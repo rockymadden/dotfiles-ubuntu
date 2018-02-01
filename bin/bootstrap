@@ -43,20 +43,7 @@ brew tap homebrew/bundle
 brew install emacs git hub tmux zsh
 
 # Install dotfiles
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/Brewfile --output Brewfile
-chmod 644 Brewfile
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/Npmfile --output Npmfile
-chmod 644 Npmfile
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/.gitconfig --output .gitconfig
-chmod 644 .gitconfig
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/.gitignore --output .gitignore
-chmod 644 .gitignore
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/.spacemacs --output .spacemacs
-chmod 644 .spacemacs
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/.tmux.conf --output .tmux.conf
-chmod 644 .tmux.conf
-curl -sSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/.zshrc --output .zshrc
-chmod 644 .zshrc
+curl -fsSL https://raw.githubusercontent.com/rockymadden/dotfiles/master/bin/upgrade | bash
 
 # Install extras
 git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
