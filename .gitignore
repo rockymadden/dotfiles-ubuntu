@@ -1,0 +1,15 @@
+/build
+/target
+bower_components
+node_modules
+.git
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*#
